@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "701499115289",
+    "project_id": "efruitapp-6c145",
+    "storage_bucket": "efruitapp-6c145.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701499115289:android:39475a32b9d671091a6788",
+        "android_client_info": {
+          "package_name": "com.example.e_fruit_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701499115289-l5o2vusk42q8mdq98gm253c6n6uj73gt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByr-M-0MPsN5TW561SBEkdawmiNp4KUHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701499115289-l5o2vusk42q8mdq98gm253c6n6uj73gt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

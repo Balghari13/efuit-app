@@ -81,8 +81,8 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: const[
-                                  Text('50 g'),
-                                  Icon(Icons.arrow_drop_down),
+                                  Text('500 gram'),
+                                 // Icon(Icons.arrow_drop_down),
                                 ],
                               ),
 

@@ -14,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Profile"),
       ),
-        drawer: const DrawerScreen(),
+        drawer: DrawerScreen(),
       body: Stack(
         children: [
           Column(
@@ -82,8 +82,8 @@ class ProfileScreen extends StatelessWidget {
                       // const ListTileScreen(
                       //     iconData: Icons.policy_outlined, title: "Privacy Policy"),
                       const ListTileScreen(iconData: Icons.add_chart, title: "About"),
-                      const ListTileScreen(
-                          iconData: Icons.exit_to_app_outlined, title: "Log Out"),
+                      // const ListTileScreen(
+                      //     iconData: Icons.exit_to_app_outlined, title: "Log Out"),
                     ],
                   ),
                 ),

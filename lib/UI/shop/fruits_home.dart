@@ -42,7 +42,7 @@ class _FruitsHomeScreenState extends State<FruitsHomeScreen> {
           IconButton(onPressed: (){}, icon: const Icon(Icons.shop)),
         ],
       ),
-      drawer: const DrawerScreen(),
+      drawer:  DrawerScreen(),
       // drawer: Drawer(
       //   child: Container(
       //     width: 100,
@@ -276,6 +276,7 @@ const SizedBox(height: 10,),
             ),
 
       ]),
-    ));
+    ),
+    );
   }
 }

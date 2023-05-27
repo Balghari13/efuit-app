@@ -1,4 +1,6 @@
 
+import 'package:e_fruit_app/UI/auth/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../profile/profile_screen.dart';
 import '../review/review_cart.dart';
@@ -9,7 +11,7 @@ class DrawerScreen extends StatelessWidget {
   // final IconData iconData;
   // final String title;
   // final VoidCallback onTap;
-  const DrawerScreen({Key? key,
+  DrawerScreen({Key? key,
     }) : super(key: key);
 
   // Widget listTile({IconData? iconData, String? title, VoidCallback? onTap}){
@@ -20,7 +22,7 @@ class DrawerScreen extends StatelessWidget {
   //
   //     );
   //   }
-
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -69,7 +71,11 @@ class DrawerScreen extends StatelessWidget {
                 ListTileScreen(iconData: Icons.notifications, title: 'Notifications', onTap: () {},),
                 ListTileScreen(iconData: Icons.favorite, title: 'Wishlist', onTap: () {},),
                 const SizedBox(height: 30,),
-                ElevatedButton(onPressed: (){}, child: const Text('Log Out')),
+                ElevatedButton(onPressed: (){
+                  auth.signOut().then((value){
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                  });
+                }, child: const Text('Log Out')),
                 const SizedBox(height: 35,),
                 Column(
                   children: const [

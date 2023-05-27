@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:e_fruit_app/UI/admin/CRUD/home_screen.dart';
 import 'package:e_fruit_app/UI/shop/fruits_home.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -158,9 +157,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have already an account?"),
+                Text("Have already an account?"),
                 TextButton(onPressed: (){
-Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
                 }, child: Text('Log In')),
               ],
             )

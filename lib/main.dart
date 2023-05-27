@@ -1,13 +1,10 @@
 
-
-import 'package:e_fruit_app/UI/auth/signup_screen.dart';
 import 'package:e_fruit_app/provider/product_provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'UI/Widgets/splash_screen.dart';
-import 'UI/shop/fruits_home.dart';
+import 'UI/splash screen/splash_screen.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

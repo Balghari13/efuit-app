@@ -1,4 +1,4 @@
-import 'package:e_fruit_app/UI/admin/CRUD/home_screen.dart';
+
 import 'package:e_fruit_app/UI/auth/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -57,12 +57,12 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: ()async{
-        SystemNavigator.pop();
-        return true;
-      },
-      child: Scaffold(
+    // return WillPopScope(
+    //   onWillPop: ()async{
+    //     SystemNavigator.pop();
+    //     return true;
+    //   },
+      return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
           title: const Text('Log In'),
@@ -124,15 +124,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Have already an account?"),
+                    const Text("Don't have an account?"),
                     TextButton(onPressed: (){
-Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignUpScreen()));
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const SignUpScreen()));
                     }, child: const Text('Sign Up')),
                   ],
                 ),
                 const SizedBox(height: 20,),
                 TextButton(onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> FruitsHomeScreen()));
                 }, child: const Text("Log In as Admin")),
 
 
@@ -158,7 +158,7 @@ Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignUpScreen
             ),
           ),
         ),
-      ),
-    );
+      );
+    //);
   }
 }

@@ -1,6 +1,5 @@
+import 'package:e_fruit_app/UI/splash%20screen/splash_services.dart';
 import 'package:flutter/material.dart';
-import '../auth/firebase_services/splash_services.dart';
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

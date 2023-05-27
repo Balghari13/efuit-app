@@ -39,15 +39,15 @@ class _CounterScreenState extends State<CounterScreen> {
                 });
               }
             },
-              child: Icon(Icons.remove, size: 15,)),
-          Text('$count', style: TextStyle(fontWeight: FontWeight.bold),),
+              child: Icon(Icons.remove, size: 25, weight: 50,color: Colors.grey,)),
+          Text('$count', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
           InkWell(
             onTap: (){
               setState(() {
                 count++;
               });
             },
-              child: Icon(Icons.add, size: 15,)),
+              child: Icon(Icons.add, size: 25, weight: 50, color: Colors.grey, )),
         ],
       ): Center(child: InkWell(
           onTap: (){

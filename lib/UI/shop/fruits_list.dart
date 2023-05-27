@@ -51,17 +51,20 @@ class FruitsListScreen extends StatelessWidget {
                             color: Colors.white,
                           )
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const[
-                          Text('500 gram'),
-                          //Icon(Icons.arrow_drop_down),
-                        ],
-                      ),
+                      child: Center(child: Text('500 g')),
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      //   children: const[
+                      //     Text('500 gram'),
+                      //     //Icon(Icons.arrow_drop_down),
+                      //   ],
+                      // ),
 
                     )),
                     const SizedBox(width: 5,),
-                   Expanded(child: CounterScreen()
+                   Expanded(
+                     flex: 2,
+                       child: CounterScreen()
                     // Container(
                     //   height: 25,
                     //   width: 50,

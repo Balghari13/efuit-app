@@ -5,10 +5,17 @@ class SingleItemScreen extends StatelessWidget {
   String productName;
   String productImage;
   int productPrice;
+  String? productId;
+  int? productQuantity;
+  VoidCallback? onDelete;
   SingleItemScreen({Key? key, this.isBool,
-    required this.productName,
+     required this.productName,
     required this.productImage,
-    required this.productPrice}) : super(key: key);
+     required this.productPrice,
+    this.productId,
+    this.productQuantity,
+    this.onDelete,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +28,7 @@ class SingleItemScreen extends StatelessWidget {
               Expanded(
                   child: Container(
                       height: 100,
-                      child: Image.network(productImage))),
+                      child: Image.network(productImage!))),
               Expanded(
                   child: Container(
                 height: 100,
@@ -35,7 +42,7 @@ class SingleItemScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          productName,
+                          productName!,
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -106,7 +113,10 @@ class SingleItemScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 12.0),
                         child: Column(
                           children: [
-                            Icon(Icons.delete),
+                            InkWell(
+                              onTap: onDelete,
+                                child: Icon(Icons.delete)
+                            ),
                             SizedBox(
                               height: 10,
                             ),

@@ -7,10 +7,13 @@ class FruitsListScreen extends StatelessWidget {
   final String productName;
   final int price;
   final VoidCallback onTap;
+  final String productId;
   const FruitsListScreen({Key? key,
      required this.productImage,
       required this.productName,
-     required this.onTap, required this.price}) : super(key: key);
+     required this.onTap,
+    required this.productId,
+    required this.price}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +67,13 @@ class FruitsListScreen extends StatelessWidget {
                     const SizedBox(width: 5,),
                    Expanded(
                      flex: 2,
-                       child: CounterScreen()
+                       child: CounterScreen(
+                         productId: productId,
+                         productImage: productImage,
+                         productName: productName,
+                         productPrice: price,
+
+                       )
                     // Container(
                     //   height: 25,
                     //   width: 50,

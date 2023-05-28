@@ -1,7 +1,16 @@
+import 'package:e_fruit_app/provider/review_cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CounterScreen extends StatefulWidget {
-  const CounterScreen({Key? key}) : super(key: key);
+  String productName;
+  String productImage;
+  String productId;
+  int productPrice;
+   CounterScreen({Key? key,
+  required this.productPrice, required this.productName,
+     required this.productImage, required this.productId,
+  }) : super(key: key);
 
   @override
   State<CounterScreen> createState() => _CounterScreenState();
@@ -11,8 +20,10 @@ class _CounterScreenState extends State<CounterScreen> {
   int count = 1;
   bool isTrue = false;
 
+
   @override
   Widget build(BuildContext context) {
+    ReviewCartProvider reviewCartProvider = Provider.of(context);
     return Container(
       height: 25,
       width: 50,
@@ -53,6 +64,14 @@ class _CounterScreenState extends State<CounterScreen> {
           onTap: (){
             setState(() {
               isTrue = true;
+              reviewCartProvider.addReviewCart(
+                  cartId: widget.productId,
+                  cartImage: widget.productImage,
+                cartName: widget.productName,
+                cartPrice: widget.productPrice,
+                cartQuantity: count,
+
+              );
             });
           },
           child: Text('ADD'))),

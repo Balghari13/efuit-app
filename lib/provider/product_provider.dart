@@ -14,6 +14,7 @@ List<ProductModel> search = [];
         productImage: element.get('productImage'),
         productName: element.get('productName'),
        productAmount: element.get('price'),
+      productId: element.get('productId'),
     );
     search.add(productModel);
 

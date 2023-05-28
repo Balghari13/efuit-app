@@ -65,7 +65,7 @@ class DrawerScreen extends StatelessWidget {
                 },),
                 ListTileScreen(iconData: Icons.shop, title: 'Shopping Cart', onTap: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=>const ReviewCartScreen()));
+                      MaterialPageRoute(builder: (context)=> ReviewCartScreen()));
 
                 },),
                 ListTileScreen(iconData: Icons.notifications, title: 'Notifications', onTap: () {},),

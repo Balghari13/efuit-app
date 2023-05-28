@@ -190,11 +190,13 @@ const SizedBox(height: 10,),
                                 ProductDetailsScreen(
                               productName: fruitsList.productName ,
                               productImage: fruitsList.productImage,
+                                  price: fruitsList.productAmount,
                             )));
                           },
                             productImage: fruitsList.productImage,
                             productName: fruitsList.productName,
                             price: fruitsList.productAmount,
+                        productId: fruitsList.productId,
 
                     );
                 }).toList(),
@@ -250,11 +252,13 @@ const SizedBox(height: 10,),
             Navigator.push(context,MaterialPageRoute(builder: (context)=> ProductDetailsScreen(
             productName: vegitablesList.productName ,
             productImage: vegitablesList.productImage,
+              price: vegitablesList.productAmount,
             )));
             },
             productImage: vegitablesList.productImage,
             productName: vegitablesList.productName,
             price: vegitablesList.productAmount,
+              productId: vegitablesList.productId,
 
             );
             }).toList(),

@@ -7,9 +7,9 @@ import '../Widgets/bottom_navbar.dart';
 class ProductDetailsScreen extends StatefulWidget {
   final String productName;
   final String productImage;
-  //final int price;
+  final int price;
   const ProductDetailsScreen({Key? key,
-    required this.productName, required this.productImage,}) : super(key: key);
+    required this.productName, required this.productImage, required this.price,}) : super(key: key);
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -63,13 +63,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                         const ListTile(
                           title: Text('Details'),
+
                           subtitle: Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. "),
                         ),
                         const SizedBox(height: 20,),
                         Row(
                           children: [
                             Expanded(child: Container(
-                              height: 25,
+                              height: 50,
                               width: 50,
                               decoration: BoxDecoration(
                                 //color: Colors.red,
@@ -78,21 +79,26 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                     color: Colors.white,
                                   )
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: const[
-                                  Text('500 gram'),
-                                 // Icon(Icons.arrow_drop_down),
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 20.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:[
+                                    Text('Rs ${widget.price}'),
+                                    SizedBox(height: 5,),
+                                    Text('500 gram'),
+
+                                  ],
+                                ),
                               ),
 
                             )),
                             const SizedBox(width: 5,),
                             Expanded(child: Container(
-                              height: 25,
+                              height: 35,
                               width: 50,
                               decoration: BoxDecoration(
-                                //color: Colors.blue,
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(
                                   color: Colors.white,
@@ -101,9 +107,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: const[
-                                  Icon(Icons.remove, size: 15,),
-                                  Text('1', style: TextStyle(fontWeight: FontWeight.bold),),
-                                  Icon(Icons.add, size: 15,),
+                                  Icon(Icons.remove, size: 25,weight: 50,),
+                                  Text('1', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
+                                  Icon(Icons.add, size: 25, weight: 50,),
                                 ],
                               ),
                             ),

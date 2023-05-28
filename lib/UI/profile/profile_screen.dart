@@ -1,12 +1,17 @@
 
+import 'package:e_fruit_app/UI/review/review_cart.dart';
+import 'package:e_fruit_app/UI/shop/fruits_home.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../Widgets/drawer_screen.dart';
 import '../Widgets/listTile_screen.dart';
+import '../auth/login_screen.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
-
+   ProfileScreen({Key? key}) : super(key: key);
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +25,7 @@ class ProfileScreen extends StatelessWidget {
           Column(
             children: [
               Container(
-                height: 120,
+                height: 200,
                 color: Colors.green,
               ),
               Expanded(
@@ -41,49 +46,50 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Container(
                             width: 300,
-                            height: 80,
-                            padding: const EdgeInsets.only(left: 50, top: 30),
+                            height: 100,
+                            padding: const EdgeInsets.only(left: 50, top: 50),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: const [
-                                    Text('User Name', style: TextStyle(
+                                    Text('Balghari', style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),),
-                                    Text('eee@fad.com', style: TextStyle(
+                                    SizedBox(height: 10,),
+                                    Text('abc@gmail.com', style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 18),),
                                   ],
                                 ),
                                 const SizedBox(width: 30,),
-                                const CircleAvatar(
-                                  radius: 15,
-                                  backgroundColor: Colors.white,
-                                  child: Icon(Icons.edit,size: 30,),
-                                )
                               ],
                             ),
                           )
                         ],
                       ),
+                      SizedBox(height: 5,),
                       const Divider(height: 1,),
-                      const ListTileScreen(iconData: Icons.shop_outlined, title: "My Orders"),
-                      const ListTileScreen(
-                          iconData: Icons.location_on_outlined,
-                          title: "My Delivery Address"),
-                      // const ListTileScreen(
-                      //     iconData: Icons.person_outline, title: "Refer A Friends"),
-                      // const ListTileScreen(
-                      //     iconData: Icons.file_copy_outlined,
-                      //     title: "Terms & Conditions"),
-                      // const ListTileScreen(
-                      //     iconData: Icons.policy_outlined, title: "Privacy Policy"),
-                      const ListTileScreen(iconData: Icons.add_chart, title: "About"),
-                      // const ListTileScreen(
-                      //     iconData: Icons.exit_to_app_outlined, title: "Log Out"),
+                      ListTileScreen(
+                        iconData: Icons.home_outlined,
+                        title: "Home", onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>FruitsHomeScreen()));
+                      },
+                      ),
+                      ListTileScreen(iconData: Icons.shop_outlined, title: "My Orders", onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewCartScreen()));
+                      },),
+                      ListTileScreen(iconData: Icons.payment_outlined, title: "Payments Details", onTap: (){
+                        Fluttertoast.showToast(msg: 'No record found');
+                      },),
+                      ListTileScreen(iconData: Icons.logout_outlined, title: "LogOut", onTap: (){
+                        auth.signOut().then((value){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                        });
+                      },),
+
                     ],
                   ),
                 ),
@@ -93,15 +99,14 @@ class ProfileScreen extends StatelessWidget {
           ),
 
           Padding(
-            padding: const EdgeInsets.only(top:50.0, left: 150),
+            padding: const EdgeInsets.only(top:80.0, left: 110),
             child: CircleAvatar(
-              radius: 50,
+              radius: 80,
               backgroundColor: Colors.green.shade200,
               child: const CircleAvatar(
-                radius: 45,
+                radius: 75,
                 backgroundColor: Colors.white,
-                backgroundImage: NetworkImage("https://w7.pngwing.com/pngs/319/218/png-transparent-sliced-apple-with-leaf-apple-juice-green-purxe9e-apple-natural-foods-food-green-apple-thumbnail.png"),
-                //backgroundImage: NetworkImage('https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600'),
+                backgroundImage: NetworkImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600"),
               ),
             ),
           )

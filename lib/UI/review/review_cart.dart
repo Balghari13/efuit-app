@@ -2,6 +2,7 @@
 import 'package:e_fruit_app/models/review_cart_model.dart';
 import 'package:e_fruit_app/provider/review_cart_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 import '../Widgets/single_item_screen.dart';
@@ -59,7 +60,9 @@ class ReviewCartScreen extends StatelessWidget {
           width: 160,
           child: MaterialButton(
             child: Text("Submit"),
-            onPressed: (){},
+            onPressed: (){
+Fluttertoast.showToast(msg: 'Ordering.....', timeInSecForIosWeb: 2);
+            },
             color: Colors.green,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(30)

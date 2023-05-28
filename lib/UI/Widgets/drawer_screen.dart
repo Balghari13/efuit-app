@@ -2,6 +2,7 @@
 import 'package:e_fruit_app/UI/auth/login_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../profile/profile_screen.dart';
 import '../review/review_cart.dart';
 import '../shop/fruits_home.dart';
@@ -51,8 +52,8 @@ class DrawerScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 15,),
-                    const Text('User Name'),
-                    const Text('User Email'),
+                    const Text('Balghari'),
+                    const Text('abc@gmail.com'),
                   ],
                 )),
                 const SizedBox(height: 20,),
@@ -60,7 +61,7 @@ class DrawerScreen extends StatelessWidget {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>FruitsHomeScreen()));
                 },),
                 ListTileScreen(iconData: Icons.person, title: 'Profile', onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const ProfileScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfileScreen()));
 
                 },),
                 ListTileScreen(iconData: Icons.shop, title: 'Shopping Cart', onTap: () {
@@ -68,8 +69,9 @@ class DrawerScreen extends StatelessWidget {
                       MaterialPageRoute(builder: (context)=> ReviewCartScreen()));
 
                 },),
-                ListTileScreen(iconData: Icons.notifications, title: 'Notifications', onTap: () {},),
-                ListTileScreen(iconData: Icons.favorite, title: 'Wishlist', onTap: () {},),
+                ListTileScreen(iconData: Icons.notifications, title: 'Notifications', onTap: () {
+                  Fluttertoast.showToast(msg: "No notifications");
+                },),
                 const SizedBox(height: 30,),
                 ElevatedButton(onPressed: (){
                   auth.signOut().then((value){

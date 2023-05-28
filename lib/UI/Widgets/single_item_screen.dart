@@ -81,7 +81,7 @@ class SingleItemScreen extends StatelessWidget {
               )),
               Expanded(
                   child: Container(
-                height: 100,
+                height: 110,
                 padding: isBool == false
                     ? EdgeInsets.symmetric(horizontal: 15, vertical: 32)
                     : EdgeInsets.only(left: 15, right: 15),
@@ -110,7 +110,7 @@ class SingleItemScreen extends StatelessWidget {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12.0),
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
                         child: Column(
                           children: [
                             InkWell(
@@ -118,11 +118,11 @@ class SingleItemScreen extends StatelessWidget {
                                 child: Icon(Icons.delete)
                             ),
                             SizedBox(
-                              height: 10,
+                              height: 15,
                             ),
                             Container(
                               height: 25,
-                              width: 60,
+                              width: 80,
                               decoration: BoxDecoration(
                                 border: Border.all(color: Colors.grey),
                                 borderRadius: BorderRadius.circular(30),
@@ -132,12 +132,16 @@ class SingleItemScreen extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: const [
                                     Icon(
-                                      Icons.add,
+                                      Icons.remove,
                                       color: Colors.grey,
                                     ),
                                     Text(
-                                      'Add',
+                                      '1',
                                       style: TextStyle(color: Colors.grey),
+                                    ),
+                                    Icon(
+                                      Icons.add,
+                                      color: Colors.grey,
                                     ),
                                   ],
                                 ),

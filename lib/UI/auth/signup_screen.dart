@@ -72,98 +72,100 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: nameController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      hintText: "Name",
-                      helperText: 'e.g Balti',
-                      prefixIcon: Icon(Icons.person_2),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: nameController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        hintText: "Name",
+                        helperText: 'e.g Balti',
+                        prefixIcon: Icon(Icons.person_2),
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter Name';
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter Name';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 20,),
-                  TextFormField(
-                    controller: phoneController,
-                    keyboardType: TextInputType.phone,
-                    decoration: const InputDecoration(
-                      hintText: "Phone",
-                      helperText: 'e.g 123567',
-                      prefixIcon: Icon(Icons.phone_outlined),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      controller: phoneController,
+                      keyboardType: TextInputType.phone,
+                      decoration: const InputDecoration(
+                        hintText: "Phone",
+                        helperText: 'e.g 123567',
+                        prefixIcon: Icon(Icons.phone_outlined),
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter Phone Number';
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter Phone Number';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 20,),
-                  TextFormField(
-                    controller: emailController,
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      hintText: "Email",
-                      helperText: 'e.g adb@faa.com',
-                      prefixIcon: Icon(Icons.email_outlined),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      controller: emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: const InputDecoration(
+                        hintText: "Email",
+                        helperText: 'e.g adb@faa.com',
+                        prefixIcon: Icon(Icons.email_outlined),
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter email';
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter email';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 20,),
-                  TextFormField(
-                    controller: passwordController,
-                    keyboardType: TextInputType.text,
-                    obscureText: true,
-                    decoration: const InputDecoration(
-                      hintText: "password",
-                      prefixIcon: Icon(Icons.lock_outline),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      controller: passwordController,
+                      keyboardType: TextInputType.text,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: "password",
+                        prefixIcon: Icon(Icons.lock_outline),
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter your password';
+                        }
+                        return null;
+                      },
                     ),
-                    validator: (value){
-                      if(value!.isEmpty){
-                        return 'Enter your password';
-                      }
-                      return null;
-                    },
-                  ),
-                  const SizedBox(height: 20,),
-                ],
+                    const SizedBox(height: 20,),
+                  ],
+                ),
               ),
-            ),
 
-            RoundButton(title: 'Sign Up', loading: loading, onTap: (){
+              RoundButton(title: 'Sign Up', loading: loading, onTap: (){
 
-              if(_formKey.currentState!.validate()){
-         signUp();
-              }
-            },),
-            SizedBox(height: 20,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Have already an account?"),
-                TextButton(onPressed: (){
+                if(_formKey.currentState!.validate()){
+           signUp();
+                }
+              },),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Have already an account?"),
+                  TextButton(onPressed: (){
 Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-                }, child: Text('Log In')),
-              ],
-            )
-          ],
+                  }, child: Text('Log In')),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -54,7 +54,7 @@ class ReviewCartScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: ListTile(
         title: Text('Total Amount'),
-        subtitle: Text('Rs 50'),
+        subtitle: Text('Rs ${reviewCartProvider.getTotalPrice()}'),
         trailing: Container(
           width: 160,
           child: MaterialButton(

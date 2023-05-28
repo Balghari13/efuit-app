@@ -22,15 +22,15 @@ class _CounterScreenState extends State<CounterScreen> {
   int count = 1;
   bool isTrue = false;
 
-getQuantity(){
-  FirebaseFirestore.instance
+getQuantity() async{
+  await FirebaseFirestore.instance
       .collection('ReviewCart').doc(FirebaseAuth.instance.currentUser!.uid)
   .collection('YourCart').doc(widget.productId).get().then((value){
-   if(this.mounted){
+   if(mounted){
      if(value.exists) {
        setState(() {
          count = value.get('cartQuantity');
-         isTrue = value.get('isAdd');
+         isTrue = value.get('isaAdd');
        });
      }
    }
@@ -39,8 +39,9 @@ getQuantity(){
   
   @override
   Widget build(BuildContext context) {
-    ReviewCartProvider reviewCartProvider = Provider.of(context);
     getQuantity();
+    ReviewCartProvider reviewCartProvider = Provider.of(context);
+
     return Container(
       height: 25,
       width: 50,

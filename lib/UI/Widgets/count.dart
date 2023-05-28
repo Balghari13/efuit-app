@@ -40,6 +40,7 @@ getQuantity(){
   @override
   Widget build(BuildContext context) {
     ReviewCartProvider reviewCartProvider = Provider.of(context);
+    getQuantity();
     return Container(
       height: 25,
       width: 50,

@@ -112,6 +112,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 productName: widget.productName,
                                 productPrice: widget.price,
 
+
                               ),
                               // Container(
                               //   height: 35,

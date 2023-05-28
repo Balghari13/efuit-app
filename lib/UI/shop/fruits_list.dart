@@ -73,7 +73,7 @@ class FruitsListScreen extends StatelessWidget {
                          productName: productName,
                          productPrice: price,
 
-                       )
+                       ),
                     // Container(
                     //   height: 25,
                     //   width: 50,

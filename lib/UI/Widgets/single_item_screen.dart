@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 
+import 'count.dart';
+
 class SingleItemScreen extends StatelessWidget {
   bool? isBool = false;
   String productName;
   String productImage;
   int productPrice;
-  String? productId;
+  String productId;
   int? productQuantity;
   VoidCallback? onDelete;
   SingleItemScreen({Key? key, this.isBool,
      required this.productName,
     required this.productImage,
      required this.productPrice,
-    this.productId,
+    required this.productId,
     this.productQuantity,
     this.onDelete,
   }) : super(key: key);
@@ -28,7 +30,7 @@ class SingleItemScreen extends StatelessWidget {
               Expanded(
                   child: Container(
                       height: 100,
-                      child: Image.network(productImage!))),
+                      child: Image.network(productImage))),
               Expanded(
                   child: Container(
                 height: 100,
@@ -42,7 +44,7 @@ class SingleItemScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          productName!,
+                          productName,
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
                         ),
@@ -85,29 +87,43 @@ class SingleItemScreen extends StatelessWidget {
                 padding: isBool == false
                     ? EdgeInsets.symmetric(horizontal: 15, vertical: 32)
                     : EdgeInsets.only(left: 15, right: 15),
-                child: isBool == false
-                    ? Container(
-                        height: 25,
-                        width: 50,
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.grey),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Center(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Icon(
-                                Icons.add,
-                                color: Colors.grey,
-                              ),
-                              Text(
-                                'Add',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                        ),
+                child: isBool == false ? Container(
+        height: 20,
+        width: 50,
+        decoration: BoxDecoration(
+          color: Colors.green.shade400,
+          borderRadius: BorderRadius.circular(30),
+        ),
+        child: CounterScreen(
+    productId: productId,
+    productImage: productImage,
+    productName: productName,
+    productPrice: productPrice,
+
+    )
+    //change add dynamicallay
+                    // ? Container(
+                    //     height: 25,
+                    //     width: 50,
+                    //     decoration: BoxDecoration(
+                    //       border: Border.all(color: Colors.grey),
+                    //       borderRadius: BorderRadius.circular(30),
+                    //     ),
+                    //     child: Center(
+                    //       child: Row(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: const [
+                    //           Icon(
+                    //             Icons.add,
+                    //             color: Colors.grey,
+                    //           ),
+                    //           Text(
+                    //             'Add1',
+                    //             style: TextStyle(color: Colors.grey),
+                    //           ),
+                    //         ],
+                    //       ),
+                    //     ),
                       )
                     : Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20.0),

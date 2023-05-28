@@ -1,15 +1,19 @@
 
+import 'package:e_fruit_app/UI/review/review_cart.dart';
 import 'package:flutter/material.dart';
 
 import '../Widgets/bottom_navbar.dart';
+import '../Widgets/count.dart';
 
 
 class ProductDetailsScreen extends StatefulWidget {
   final String productName;
   final String productImage;
   final int price;
-  const ProductDetailsScreen({Key? key,
-    required this.productName, required this.productImage, required this.price,}) : super(key: key);
+  final String productId;
+   ProductDetailsScreen({Key? key,
+    required this.productName, required this.productImage, required this.productId,
+    required this.price,}) : super(key: key);
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -20,23 +24,19 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Row(
-        children: const [
-          BottomNavBarScreen(
-              iconColor: Colors.white,
-              backgroundColour: Color(0xff2abe25),
-              color: Colors.black,
-              title: 'Add to Wishlist',
-              iconData: Icons.favorite
-      ),
+        children:  [
           BottomNavBarScreen(
               iconColor: Colors.black,
               backgroundColour: Color(0xff1d851a),
               color: Colors.white,
               title: 'Go to Cart',
               iconData: Icons.shopping_cart,
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewCartScreen()));
+              },
           ),
-
         ],
+
       ),
       appBar: AppBar(
         title: const Text('Product Details'),
@@ -69,18 +69,18 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                         const SizedBox(height: 20,),
                         Row(
                           children: [
-                            Expanded(child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                //color: Colors.red,
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                    color: Colors.white,
-                                  )
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 20.0),
+                            Expanded(child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                  //color: Colors.red,
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.white,
+                                    )
+                                ),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -91,30 +91,48 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
 
                                   ],
                                 ),
-                              ),
 
+                              ),
                             )),
                             const SizedBox(width: 5,),
-                            Expanded(child: Container(
-                              height: 35,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(
-                                  color: Colors.white,
+                            Expanded(child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Container(
+                                height: 50,
+                                width: 50,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    border: Border.all(
+                                      color: Colors.green.shade300,
+                                    )
                                 ),
+                              child: CounterScreen(
+                                productId: widget.productId,
+                                productImage: widget.productImage,
+                                productName: widget.productName,
+                                productPrice: widget.price,
+
                               ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const[
-                                  Icon(Icons.remove, size: 25,weight: 50,),
-                                  Text('1', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
-                                  Icon(Icons.add, size: 25, weight: 50,),
-                                ],
-                              ),
+                              // Container(
+                              //   height: 35,
+                              //   width: 30,
+                              //   decoration: BoxDecoration(
+                              //     borderRadius: BorderRadius.circular(20),
+                              //     border: Border.all(
+                              //       color: Colors.green.shade300,
+                              //     ),
+                              //   ),
+                              //   child: Row(
+                              //     mainAxisAlignment: MainAxisAlignment.center,
+                              //     children: const[
+                              //       Icon(Icons.add, size: 25,weight: 50, color: Colors.grey),
+                              //       Text('ADD', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25 , color: Colors.grey),),
+                              //     ],
+                              //   ),
+                              // ),
                             ),
                             ),
-                          ],
+                            )],
                         ),
                       ],
                     ),

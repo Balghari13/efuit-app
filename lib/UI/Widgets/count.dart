@@ -44,11 +44,9 @@ getQuantity(){
       height: 25,
       width: 50,
       decoration: BoxDecoration(
-        //color: Colors.blue,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(
-          color: Colors.white,
-        ),
+        color: Colors.green.shade400,
+        borderRadius: BorderRadius.circular(20),
+
       ),
       child: isTrue==true ? Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +71,7 @@ getQuantity(){
                 );
               }
             },
-              child: Icon(Icons.remove, size: 25, weight: 50,color: Colors.grey,)),
+              child: Icon(Icons.remove, size: 25, weight: 50,)),
           Text('$count', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),),
           InkWell(
             onTap: (){
@@ -88,7 +86,7 @@ getQuantity(){
                 cartQuantity: count,
               );
             },
-              child: Icon(Icons.add, size: 25, weight: 50, color: Colors.grey, )),
+              child: Icon(Icons.add, size: 25, weight: 50, )),
         ],
       ): Center(child: InkWell(
           onTap: (){

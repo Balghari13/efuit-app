@@ -1,4 +1,5 @@
 
+import 'package:e_fruit_app/UI/review/review_cart.dart';
 import 'package:e_fruit_app/UI/shop/product_details.dart';
 import 'package:e_fruit_app/provider/product_provider.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,9 @@ class _FruitsHomeScreenState extends State<FruitsHomeScreen> {
                   search: productProvider.searchAllProducts,
                 )));
           }, icon: const Icon(Icons.search)),
-          IconButton(onPressed: (){}, icon: const Icon(Icons.shop)),
+          IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ReviewCartScreen()));
+          }, icon: const Icon(Icons.shop)),
         ],
       ),
       drawer:  DrawerScreen(),
@@ -188,6 +191,7 @@ const SizedBox(height: 10,),
                             debugPrint('click');
                             Navigator.push(context,MaterialPageRoute(builder: (context)=>
                                 ProductDetailsScreen(
+                                  productId: fruitsList.productId,
                               productName: fruitsList.productName ,
                               productImage: fruitsList.productImage,
                                   price: fruitsList.productAmount,
@@ -253,6 +257,7 @@ const SizedBox(height: 10,),
             productName: vegitablesList.productName ,
             productImage: vegitablesList.productImage,
               price: vegitablesList.productAmount,
+              productId: vegitablesList.productId,
             )));
             },
             productImage: vegitablesList.productImage,

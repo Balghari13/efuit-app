@@ -67,6 +67,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   productName: data.productName,
                   productImage: data.productImage,
                   productPrice: data.productAmount,
+                  productId: data.productId,
+
                 );
               }).toList(),
             )

@@ -22,6 +22,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final passwordController = TextEditingController();
   final nameController = TextEditingController();
   final phoneController = TextEditingController();
+  final addressController = TextEditingController();
 
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -34,6 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     passwordController.dispose();
     nameController.dispose();
     phoneController.dispose();
+   addressController.dispose();
   }
 
 
@@ -52,6 +54,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             'name': nameController.text,
             'phone': phoneController.text,
             'email': emailController.text,
+            'address': addressController.text,
           });
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>FruitsHomeScreen()));
       setState(() {
@@ -107,6 +110,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       validator: (value){
                         if(value!.isEmpty){
                           return 'Enter Phone Number';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 20,),
+                    TextFormField(
+                      controller: addressController,
+                      keyboardType: TextInputType.text,
+                      decoration: const InputDecoration(
+                        hintText: "Address",
+                        helperText: 'e.g street no',
+                        prefixIcon: Icon(Icons.location_city_outlined),
+                      ),
+                      validator: (value){
+                        if(value!.isEmpty){
+                          return 'Enter Address Number';
                         }
                         return null;
                       },

@@ -59,7 +59,7 @@ class ReviewCartScreen extends StatelessWidget {
         trailing: Container(
           width: 160,
           child: MaterialButton(
-            child: Text("Submit"),
+            child: Text("Buy Now"),
             onPressed: (){
 Fluttertoast.showToast(msg: 'Ordering.....', timeInSecForIosWeb: 2);
             },

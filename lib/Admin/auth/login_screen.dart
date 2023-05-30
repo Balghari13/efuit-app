@@ -1,23 +1,24 @@
 
-import 'package:e_fruit_app/Admin/auth/login_screen.dart';
+import 'package:e_fruit_app/Admin/auth/signup_screen.dart';
+import 'package:e_fruit_app/UI/auth/login_screen.dart';
 import 'package:e_fruit_app/UI/auth/signup_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../Widgets/round_button.dart';
-import '../Widgets/utilis/utils.dart';
-import '../shop/fruits_home.dart';
+import '../../UI/Widgets/round_button.dart';
+import '../../UI/Widgets/utilis/utils.dart';
+import '../Dashboard/AdminHome.dart';
 
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class AdminLoginScreen extends StatefulWidget {
+  const AdminLoginScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<AdminLoginScreen> createState() => _AdminLoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _AdminLoginScreenState extends State<AdminLoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -42,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
         email: emailController.text,
         password: passwordController.text.toString()).then((value){
           Utils().toastMessage(value.user!.email.toString());
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> FruitsHomeScreen()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> AdminHome()));
           setState(() {
             loading=false;
           });
@@ -66,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          title: const Text('Log In'),
+          title: const Text('Admin Log In'),
         ),
         body: Container(
           width: double.infinity,
@@ -127,34 +128,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     const Text("Don't have an account?"),
                     TextButton(onPressed: (){
-Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const SignUpScreen()));
+Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> AdminSignUpScreen()));
                     }, child: const Text('Sign Up')),
                   ],
                 ),
                 const SizedBox(height: 20,),
                 TextButton(onPressed: (){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> AdminLoginScreen()));
-                }, child: const Text("Log In as Admin")),
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+                }, child: const Text("Log In as User")),
 
-
-                // InkWell(
-                //   onTap: (){
-                //     Navigator.pushReplacement(context,
-                //         MaterialPageRoute(builder: (context)=>LoginWithNumber()));
-                //   },
-                //   child: Container(
-                //     height: 50,
-                //     decoration: BoxDecoration(
-                //       borderRadius: BorderRadius.circular(50),
-                //       border: Border.all(
-                //         color: Colors.black
-                //       )
-                //     ),
-                //     child: Center(
-                //       child: Text('Login with number'),
-                //     ),
-                //   ),
-                // )
               ],
             ),
           ),

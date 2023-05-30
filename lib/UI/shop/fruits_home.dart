@@ -107,7 +107,7 @@ class _FruitsHomeScreenState extends State<FruitsHomeScreen> {
         child: Column(
           children: [
             Container(
-              height: 150,
+              height: 120,
               width: double.infinity,
               decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -267,20 +267,7 @@ const SizedBox(height: 10,),
 
             );
             }).toList(),
-                // children: [
-                //   // FruitsListScreen(
-                //   //     productImage: 'assets/images/almonds.png',
-                //   //     productName: 'Apple', onTap: (){}),
-                //   // FruitsListScreen(
-                //   //     productImage: 'assets/images/apple.png',
-                //   //     productName: 'Mango', onTap: (){}),
-                //   // FruitsListScreen(
-                //   //     productImage: 'assets/images/almonds.png',
-                //   //     productName: 'Apple', onTap: (){}),
-                //   // FruitsListScreen(
-                //   //     productImage: 'assets/images/apple.png',
-                //   //     productName: 'Mango', onTap: (){}),
-                // ],
+
               ),
             ),
 
